@@ -24,7 +24,7 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
-    let twoNumbers = value.toString();
+    let twoNumbers = value;
     if (value === 0) {
       twoNumbers = '00';
     } else if (value <= 9) {
@@ -32,7 +32,7 @@ class Chronometer {
     } else {
       twoNumbers;
     }
-    return twoNumbers;
+    return twoNumbers.toString();
   }
 
   stop() {
@@ -50,6 +50,19 @@ class Chronometer {
     // return result
   }
 }
+
+const chronometer = new Chronometer();
+console.log(chronometer);
+
+chronometer.currentTime = 74;
+console.log(chronometer.currentTime)
+console.log(chronometer.getMinutes());
+console.log(chronometer.getSeconds());
+
+console.log(chronometer.computeTwoDigitNumber(3));
+
+console.log(chronometer.reset());
+console.log(chronometer.currentTime);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
