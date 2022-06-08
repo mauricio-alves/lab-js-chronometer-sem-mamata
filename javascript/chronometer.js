@@ -5,8 +5,12 @@ class Chronometer {
   }
 
   start(printTimeCallback) {
-    this.intervalId = setInterval(() => this.currentTime++, 1000);
-    // setInterval(() => printTimeCallback, 1000);
+    this.intervalId = setInterval(() => {
+      this.currentTime++;
+      if (printTimeCallback) {
+        printTimeCallback();
+      }
+    }, 1000);
   }
 
   getMinutes() {
@@ -14,13 +18,7 @@ class Chronometer {
   }
 
   getSeconds() {
-    if (this.currentTime % 60 === 0) {
-      return Math.floor(this.currentTime / 60);
-    } else if (this.currentTime > 60) {
-      return this.currentTime - 60;
-    } else {
-      return this.currentTime;
-    }
+    return this.currentTime % 60;
   }
 
   computeTwoDigitNumber(value) {
@@ -44,25 +42,11 @@ class Chronometer {
   }
 
   split() {
-    // const result = `${this.computeTwoDigitNumber(
-    //   this.getMinutes
-    // )}:${this.computeTwoDigitNumber(this.getSeconds)}`;
-    // return result
+    return `${this.computeTwoDigitNumber(
+      this.getMinutes()
+    )}:${this.computeTwoDigitNumber(this.getSeconds())}`;
   }
 }
-
-const chronometer = new Chronometer();
-console.log(chronometer);
-
-chronometer.currentTime = 74;
-console.log(chronometer.currentTime)
-console.log(chronometer.getMinutes());
-console.log(chronometer.getSeconds());
-
-console.log(chronometer.computeTwoDigitNumber(3));
-
-console.log(chronometer.reset());
-console.log(chronometer.currentTime);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
