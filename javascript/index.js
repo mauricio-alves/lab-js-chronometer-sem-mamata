@@ -50,7 +50,6 @@ function setStopBtn() {
 function setSplitBtn() {
   btnRight.innerText = 'SPLIT';
   btnRight.classList.toggle('split');
-  chronometer.split();
 }
 
 function setStartBtn() {
@@ -62,7 +61,6 @@ function setStartBtn() {
 function setResetBtn() {
   btnRight.innerText = 'RESET';
   btnRight.classList.toggle('split');
-  chronometer.reset();
 }
 
 // Start/Stop Button
