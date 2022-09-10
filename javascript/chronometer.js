@@ -22,31 +22,29 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
-    let twoNumbers = value;
-    if (value === 0) {
-      twoNumbers = '00';
-    } else if (value <= 9) {
-      twoNumbers = '0' + twoNumbers;
-    } else {
-      twoNumbers;
-    }
-    return twoNumbers.toString();
+    // let twoNumbers = value;
+    // if (value === 0) {
+    //   twoNumbers = '00';
+    // } else if (value <= 9) {
+    //   twoNumbers = '0' + twoNumbers;
+    // } else {
+    //   twoNumbers;
+    // }
+    // return twoNumbers.toString();
 
     // version 2
     if (value < 10) {
       return `0${value}`;
     }
-    return value.toString();
+    return `${value}`;
   }
 
   stop() {
-    // added return
-    return clearInterval(this.intervalId);
+    clearInterval(this.intervalId);
   }
 
   reset() {
-    // added return
-    return (this.currentTime = 0);
+    this.currentTime = 0;
   }
 
   split() {
