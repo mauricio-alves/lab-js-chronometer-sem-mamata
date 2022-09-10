@@ -31,14 +31,22 @@ class Chronometer {
       twoNumbers;
     }
     return twoNumbers.toString();
+
+    // version 2
+    if (value < 10) {
+      return `0${value}`;
+    }
+    return value.toString();
   }
 
   stop() {
-    clearInterval(this.intervalId);
+    // added return
+    return clearInterval(this.intervalId);
   }
 
   reset() {
-    this.currentTime = 0;
+    // added return
+    return (this.currentTime = 0);
   }
 
   split() {
